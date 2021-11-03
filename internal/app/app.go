@@ -15,7 +15,7 @@ const appID = "com.github.infastin.t11go"
 type Application struct {
 	fyne.App
 	win     fyne.Window
-	watcher *mount.Watcher
+	watcher mount.Watcher
 	view    *view.View
 	mounts  []mount.Mount
 }
@@ -67,7 +67,7 @@ func (app *Application) Watch() error {
 	go func() {
 		for {
 			select {
-			case <-app.watcher.Events:
+			case <-app.watcher.Events():
 				oldMounts := app.mounts
 				newMounts := app.watcher.Mounts()
 
@@ -88,7 +88,7 @@ func (app *Application) Watch() error {
 				}
 
 				app.mounts = newMounts
-			case err := <-app.watcher.Errors:
+			case err := <-app.watcher.Errors():
 				fmt.Println(err)
 				return
 			}
