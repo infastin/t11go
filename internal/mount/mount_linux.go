@@ -46,7 +46,7 @@ func mounts(fd int) ([]Mount, error) {
 				Device: fields[0],
 				Mpoint: fields[1],
 				Ftype:  fields[2],
-				Bsize:  statfs.Bsize,
+				Bsize:  uint64(statfs.Bsize),
 				Blocks: statfs.Blocks,
 				Bavail: statfs.Bavail,
 			})

@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	fyne.io/fyne/v2 v2.1.1
-	golang.org/x/sys v0.0.0-20211102061401-a2f17f7b995c
+	golang.org/x/sys v0.0.0-20211102192858-4dd72447c267
 )
 
 require (

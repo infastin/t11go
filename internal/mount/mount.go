@@ -8,7 +8,7 @@ type Mount struct {
 	Device string
 	Mpoint string
 	Ftype  string
-	Bsize  int64
+	Bsize  uint64
 	Blocks uint64
 	Bavail uint64
 }
@@ -51,11 +51,11 @@ func humanReadable(bytes uint64) string {
 }
 
 func (m Mount) Size() string {
-	bytes := m.Blocks * uint64(m.Bsize)
+	bytes := m.Blocks * m.Bsize
 	return humanReadable(bytes)
 }
 
 func (m Mount) Avail() string {
-	bytes := m.Bavail * uint64(m.Bsize)
+	bytes := m.Bavail * m.Bsize
 	return humanReadable(bytes)
 }
