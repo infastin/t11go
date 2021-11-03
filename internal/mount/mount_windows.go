@@ -149,7 +149,7 @@ func (w *windowsWatcher) Mounts() []Mount {
 }
 
 func (w *windowsWatcher) Watch() error {
-	return nil
+	return ErrWatchUnsupported
 }
 
 func (w *windowsWatcher) Events() chan struct{} {

@@ -13,6 +13,8 @@ type Mount struct {
 	Bavail uint64
 }
 
+var ErrWatchUnsupported = fmt.Errorf("watcher doesn't support watching")
+
 type Watcher interface {
 	Mounts() []Mount
 	Watch() error

@@ -61,6 +61,10 @@ func (app *Application) Watch() error {
 
 	err := app.watcher.Watch()
 	if err != nil {
+		if err == mount.ErrWatchUnsupported {
+			return nil
+		}
+
 		return err
 	}
 
